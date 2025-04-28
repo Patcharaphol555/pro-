@@ -1,0 +1,94 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    /* เปลี่ยนพื้นหลังเป็นสีเขียวอ่อนสดใส */
+    background-color: #ffffff; /* Honey Dew */
+    color: #333; /* สีตัวอักษรหลัก */
+}
+
+header {
+    /* เปลี่ยนพื้นหลัง header เป็นสีฟ้าสดใส */
+    background-color: #4682b4; /* SteelBlue */
+    color: #fff; /* ตัวอักษรสีขาว */
+    padding: 1.5em 0;
+    text-align: center;
+    border-bottom: 2px solid #6495ed; /* CornflowerBlue */
+}
+
+nav {
+    background-color: #e0ffff; /* LightCyan */
+    padding: 0.8em 0;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #add8e6; /* LightBlue */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1.2em;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #007bff; /* สีฟ้าเมื่อ hover */
+}
+
+.product-list {
+    max-width: 960px;
+    margin: 25px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-item {
+    border: 1px solid #d3d3d3;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff; /* GhostWhite */
+    transition: transform 0.2s ease-in-out;
+}
+
+.product-item:hover {
+    transform: scale(1.02);
+}
+
+.product-item img {
+    max-width: 120px; /* ลดขนาดรูปภาพเล็กน้อย */
+    height: auto;
+    margin-right: 20px; /* เพิ่ม margin ด้านขวา */
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.product-item h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #2e8b57; /* SeaGreen */
+}
+
+.price {
+    color: #ff6347; /* Tomato */
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* ... CSS เพิ่มเติมสำหรับส่วนอื่นๆ ... */
+

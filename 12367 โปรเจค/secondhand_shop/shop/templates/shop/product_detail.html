@@ -1,0 +1,173 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }} - รายละเอียดสินค้า - ร้านค้าออนไลน์ของคุณ</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'shop/style.css' %}">
+    <style>
+        /* Inline Styles (คุณควรย้ายไปที่ style.css ในภายหลัง) */
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .product-image-column {
+            text-align: center;
+        }
+
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-info-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            color: #e44d26;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .product-condition {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-link-button {
+            background-color: #f8f8f8; /* สีเทาอ่อนมาก */
+            color: #333; /* สีดำ */
+            border: 1px solid #ddd; /* ขอบสีเทาอ่อน */
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-top: 20px; /* เพิ่ม margin-top เพื่อเว้นระยะห่าง */
+        }
+
+        .back-link-button:hover {
+            background-color: #ddd; /* สีเทาอ่อนเมื่อ hover */
+            color: #007bff; /* สีน้ำเงินเมื่อ hover */
+        }
+
+        /* Navigation Bar (ถ้ามี) */
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1em;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    {% if request.path != '/' %}
+    <nav>
+        <ul>
+            <li><a href="{% url 'product_list' %}">หน้าแรก</a></li>
+            <li><a href="{% url 'view_cart' %}">ตะกร้าสินค้า</a></li>
+            <li><a href="{% url 'contact' %}">ติดต่อเรา</a></li>
+        </ul>
+    </nav>
+    {% endif %}
+
+    <div class="container">
+        <div class="product-detail-grid">
+            <div class="product-image-column">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                {% else %}
+                    <div style="background-color: #eee; height: 300px; display: flex; justify-content: center; align-items: center; border-radius: 8px;">
+                        ไม่มีรูปภาพ
+                    </div>
+                {% endif %}
+            </div>
+            <div class="product-info-column">
+                <h1 class="product-title">{{ product.name }}</h1>
+                <p class="product-price">ราคา: {{ product.price }} บาท</p>
+                {% if product.condition %}
+                    <p class="product-condition">สภาพ: {{ product.condition }}</p>
+                {% endif %}
+                <p class="product-description">{{ product.description|default:"ไม่มีรายละเอียด" }}</p>
+                <a href="{% url 'add_to_cart' product.id %}" class="add-to-cart-button">เพิ่มลงตะกร้าสินค้า</a>
+            </div>
+        </div>
+        <p><a href="{% url 'product_list' %}" class="back-link-button">กลับไปหน้ารายการสินค้า</a></p>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; margin-top: 20px; padding-top: 10px; border-top: 1px solid #eee;">
+            <p>&copy; 2025 มือสองสไตล์คุณ. สงวนลิขสิทธิ์.</p>
+        </div>
+    </footer>
+</body>
+</html>

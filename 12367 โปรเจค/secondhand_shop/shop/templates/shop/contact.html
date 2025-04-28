@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ติดต่อเรา</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'shop/style.css' %}">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* สีเทาอ่อนมาก */
+            color: #333; /* สีดำ */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff; /* สีขาว */
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #333; /* สีดำ */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ccc; /* เส้นขอบสีเทาอ่อน */
+            padding-bottom: 15px;
+        }
+
+        p {
+            color: #555; /* สีเทาเข้ม */
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            color: #333; /* สีดำ */
+            margin-bottom: 10px;
+            padding: 10px;
+            border-left: 3px solid #777; /* เส้นด้านข้างสีเทา */
+            text-align: left;
+        }
+
+        a {
+            color: #007bff; /* สีน้ำเงิน (เพื่อเน้น) */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3; /* สีน้ำเงินเข้มขึ้นเมื่อ hover */
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+            color: #777; /* สีเทา */
+            border-top: 1px solid #eee;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ติดต่อเรา</h1>
+        <p>หากมีข้อสงสัยหรือต้องการสอบถามข้อมูลเพิ่มเติม สามารถติดต่อเราได้ตามช่องทางด้านล่างนี้:</p>
+        <ul>
+            <li><strong>อีเมล:</strong> <a href="mailto:your_email@example.com">your_email@example.com</a></li>
+            <li><strong>โทรศัพท์:</strong> 012-345-6789</li>
+            <li><strong>LINE ID:</strong> your_line_id</li>
+        </ul>
+        <p>เรายินดีให้บริการและตอบทุกข้อสงสัยของคุณ</p>
+        <p><a href="{% url 'product_list' %}">กลับไปหน้ารายการสินค้า</a></p>
+    </div>
+    <footer>
+        <p>&copy; 2025 มือสองสไตล์คุณ. สงวนลิขสิทธิ์.</p>
+    </footer>
+</body>
+</html>
